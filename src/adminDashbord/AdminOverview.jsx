@@ -4,12 +4,11 @@ import { Navbar } from "./Navbar.jsx";
 import {Outlet} from "react-router-dom"
 import { DoctorHomePreview } from "./DocterHomePreview.jsx";
 import Sidebar from "./Sidebar.jsx";
-import { motion } from "framer-motion";
 import { UserContext } from "../context/contextApi";
 import { HospitalsList } from "./HospitalsList.jsx";
 import { DoctorsByHospital } from "./DoctersByHospital.jsx";
 import { useContext } from "react";
-import { tr } from "framer-motion/client";
+import { motion } from "framer-motion";
 import { AddHospital } from "./AddHopital.jsx";
 import { PatientHistoryPreview } from "./PatientHistryView.jsx";
 import { useQuery } from "@tanstack/react-query";
