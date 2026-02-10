@@ -130,7 +130,8 @@ function StatsCards({ stats, totalDoctors, totalHospitals, isLoading, isHospital
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-5 lg:grid-cols-5 gap-2 w-full">
+    <div className="grid grid-cols-2 sm:grid-cols-5 
+    lg:grid-cols-5 gap-0 md:grid-2 w-full">
       {cards.map((card, idx) => (
         <motion.div
           key={idx}
@@ -138,20 +139,21 @@ function StatsCards({ stats, totalDoctors, totalHospitals, isLoading, isHospital
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
           className="
             relative overflow-hidden
-            p-4 rounded-3xl
+            p-2 rounded-3xl
             bg-white/80 backdrop-blur
             border border-white/60
             shadow-[0_20px_40px_rgba(0,0,0,0.08)]
           "
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-slate-100/40" />
+          <div className="absolute inset-0 bg-gradient-to-br 
+          from-white/40 via-transparent to-slate-100/40" />
 
-          <div className="relative z-10 flex flex-col gap-2">
+          <div className="relative z-10 flex flex-col gap-0 md:gap-2">
             <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-slate-500">
+              <span className="text-xs md:text-sm font-medium text-slate-500">
                 {card.title}
               </span>
-              <div className="w-11 h-11 rounded-2xl flex items-center justify-center bg-slate-100 shadow-inner">
+              <div className="w-5 md:w-11 h-5 md:h-11 rounded-2xl flex items-center justify-center bg-slate-100 shadow-inner">
                 <span className={`text-xl ${card.color}`}>{card.icon}</span>
               </div>
             </div>
@@ -208,7 +210,7 @@ function StatsCards({ stats, totalDoctors, totalHospitals, isLoading, isHospital
   <div className="w-full min-h-screen px-4 md:px-6
    py-6 space-y-8 bg-slate-50">
 
-    {/* ================= HEAR ================= */}
+    {/* =====HHH========== */}
     <div className="flex flex-col gap-1">
       <h1 className="text-2xl md:text-3xl font-bold text-slate-800">
         Admin Dashboard

@@ -1,12 +1,20 @@
 import { useContext } from "react";
 import { UserContext } from "../context/contextApi";
-import { FaUserShield } from "react-icons/fa";
+import { FaUserShield, FaSignOutAlt } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export function Navbar({ onMenuClick }) {
-  const { user } = useContext(UserContext);
-
+  const Navigate=useNavigate();
+  const { user,logoutUser } = useContext(UserContext);
+const Logout=()=>{
+  const isConfirmed=window.confirm("are you Sure to logout ??",logoutUser)
+ if(isConfirmed){
+logoutUser();
+ Navigate("/")
+}}
   return (
     <div
       className="
@@ -24,12 +32,15 @@ export function Navbar({ onMenuClick }) {
           flex items-center justify-between
         "
       >
-        {/* ================= LEFT: MENU + BRAND ================= */}
+        {/* ================= LEFT ================= */}
         <div className="flex items-center gap-3">
-
-          {/* Mobile menu button */}
+          {/* Mobile menu */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-slate-100"
+            className="
+              md:hidden p-2 rounded-lg
+              hover:bg-slate-100
+              active:scale-95 transition
+            "
             onClick={onMenuClick}
           >
             ☰
@@ -60,7 +71,7 @@ export function Navbar({ onMenuClick }) {
           </div>
         </div>
 
-        {/* ================= SEARCH (DESKTOP ONLY) ================= */}
+        {/* ================= SEARCH ================= */}
         <div className="hidden md:block relative w-72">
           <MdSearch
             className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
@@ -82,32 +93,53 @@ export function Navbar({ onMenuClick }) {
           />
         </div>
 
-        {/* ================= ADMIN INFO (DESKTOP ONLY) ================= */}
-        <div
-          className="
-            hidden md:flex items-center gap-3
-            bg-white rounded-xl px-3 py-2
-            shadow-[0_6px_16px_rgba(0,0,0,0.12)]
-            hover:-translate-y-0.5 transition
-          "
-        >
+        {/* ================= RIGHT: ADMIN + LOGOUT ================= */}
+        <div className="flex items-center gap-3">
+          {/* Admin info */}
           <div
             className="
-              w-9 h-9 rounded-full
-              bg-gradient-to-br from-slate-700 to-slate-900
-              flex items-center justify-center
-              text-white
+              hidden md:flex items-center gap-3
+              bg-white rounded-xl px-3 py-2
+              shadow-[0_6px_16px_rgba(0,0,0,0.12)]
+              hover:-translate-y-0.5 transition
             "
           >
-            <FaUserShield size={16} />
-          </div>
+            <div
+              className="
+                w-9 h-9 rounded-full
+                bg-gradient-to-br from-slate-700 to-slate-900
+                flex items-center justify-center
+                text-white
+              "
+            >
+              <FaUserShield size={16} />
+            </div>
 
-          <div className="text-sm leading-tight">
-            <div className="text-slate-500">Admin</div>
-            <div className="font-semibold text-slate-800">
-              {user ? user.Name : "Guest"}
+            <div className="text-sm leading-tight">
+              <div className="text-slate-500">Admin</div>
+              <div className="font-semibold text-slate-800">
+                {user ? user.Name : "Guest"}
+              </div>
             </div>
           </div>
+
+          {/* Logout button (UI ONLY) */}
+          <button
+            className="
+              flex items-center gap-2
+              px-3 py-2 rounded-xl
+              bg-gradient-to-br from-red-500 to-rose-600
+              text-white text-sm font-medium
+              shadow-[0_8px_20px_rgba(239,68,68,0.35)]
+              hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(239,68,68,0.45)]
+              active:scale-95
+              transition
+            "
+            onClick={() => Logout()}
+          >
+            <FaSignOutAlt size={14} />
+            <span className="hidden sm:inline">Logout</span>
+          </button>
         </div>
       </div>
     </div>

@@ -27,7 +27,7 @@ const Sidebar = ({
   return (
     <div
       className={`
-        ${collapsed ? 'w-16' : 'w-48'}
+        ${collapsed ? 'w-16' : 'w-40'}
         bg-slate-50 h-full border-r shadow-md
         flex flex-col transition-all duration-300
       `}

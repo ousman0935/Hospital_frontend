@@ -6,14 +6,14 @@ import axios from 'axios'
 import { toast } from 'react-toastify';
 const HomePage = () => {
   const { user } = useContext(UserContext);
-
-  // State for location
+  const {loginUser}=useContext(UserContext);
+  // Stlocation
   const [region, setRegion] = useState("");
   const [city, setCity] = useState("");
   const [subCity, setSubCity] = useState("");
   const [showLocationModal, setShowLocationModal] = useState(false);
 
-  // Sync location from user context
+   //user context
   useEffect(() => {
     if (!user?.Location?.Region) return;
 
@@ -28,7 +28,7 @@ const HomePage = () => {
     }
   }, [user]);
 
-  // Ethiopia location structure
+  //  str
   const locations = {
     "Addis Ababa": { subCities: ["Bole", "Yeka", "Kirkos", "Arada", "Kolfe", "Nifas Silk"] },
     "Oromia": { cities: ["Adama", "Bishoftu", "Jimma", "Shashamane"] },
@@ -43,32 +43,35 @@ const HomePage = () => {
     "Dire Dawa": { cities: ["Dire Dawa"] },
   };
 
-  // Form submit handler
   const handleLocationSubmit = async(e) => {
    try 
     {e.preventDefault();
    
     const payload = {
       Region: region,
-      City: region === "Addis Ababa" ? null : city,
-      SubCity: region === "Addis Ababa" ? subCity : null,
+     
     };
-    const response=axios.post(`https://hospital-b2mt.onrender.com/Location/${user._id}`,payload);
+    if(region === "Addis Ababa"){payload["SubCity"]=subCity}
+    else{
+      payload["City"]=city
+    }
+    const response=await axios.post(`https://hospital-b2mt.onrender.com/Location/${user._id}`,payload);
      if (!response || response.status !== 200) {
-      // API fail
+      // API failgg
       toast.error("Failed to change location!1");
   
       return;
     }
-  
-
-    // Success
+     loginUser(response.data.data)
+    // Successpp
     toast.success("Location changed successfully!");
     setShowLocationModal(false);
   }
      catch (error) {
+          console.error(error);
+
             toast.error("Failed to change location!");
-console.log(error)
+
     }
   };
     console.log(user)
@@ -76,7 +79,7 @@ console.log(error)
   return (
     <div className="min-h-screen bg-[#F4F7FE] px-4 py-4 max-w-6xl mx-auto space-y-4">
 
-      {/* HEADER ================= */}
+      {/* HE ================= */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-bold text-slate-800">
