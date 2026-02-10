@@ -33,7 +33,7 @@ const [showHelpModal, setShowHelpModal] = useState(false);
       <div className="space-y-3">
         {/* CALL */}
         <a
-          href="tel:+251900000000"
+          href="tel:+251935213508"
           className="flex items-center gap-3 p-3 border rounded-xl hover:bg-slate-50"
         >
           📞
@@ -45,7 +45,7 @@ const [showHelpModal, setShowHelpModal] = useState(false);
 
         {/* WHATSAPP */}
         <a
-          href="https://wa.me/251900000000"
+          href="https://wa.me/251935213508"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 p-3 border rounded-xl hover:bg-slate-50"
@@ -59,7 +59,7 @@ const [showHelpModal, setShowHelpModal] = useState(false);
 
         {/* EMAIL (OPTIONAL) */}
         <a
-          href="mailto:support@yourapp.com"
+          href="Ousman0935@gmail.com"
           className="flex items-center gap-3 p-3 border rounded-xl hover:bg-slate-50"
         >
           ✉️
