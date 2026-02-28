@@ -15,7 +15,7 @@ const hour=date.getHours();
 setHour(hour)
 const minute=date.getMinutes();
 setMinute(minute);
-},[])
+},[date])
   return (
     <div className="space-y-4">
 
