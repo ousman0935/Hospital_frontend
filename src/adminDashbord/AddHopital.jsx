@@ -70,7 +70,7 @@ const handleImageChange = (e, type) => {
     if(Cover) uploadData.append("Cover", Cover);
     if(Logo || Cover){
      try {
-         const res2=await fetch("http://localhost:5000/uploadboth",{
+         const res2=await fetch("https://hospital-b2mt.onrender.com/uploadboth",{
           method: "POST",
           body: uploadData, // ❗
         })

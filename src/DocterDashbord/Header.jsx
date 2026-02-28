@@ -80,19 +80,20 @@ export default function Header() {
           onClick={() => setActive("availability")}
           className={active === "availability" ? "text-blue-600 font-semibold" : "hover:text-blue-600"}
         >
-          Availability
+          Schedule Management
+
         </Link>
         <Link
           to="/docter/profile"
           onClick={() => setActive("profile")}
-          className={active === "profile" ? "text-blue-600 font-semibold" : "hover:text-blue-600"}
+          className={active === "profile" ? " text-blue-600 font-semibold" : "hover:text-blue-600"}
         >
           Profile
         </Link>
       </nav>
 
       {/* Right: Logout */}
-      <div className="hidden md:flex items-center gap-2">
+      <div className="hidden md:flex items-center gap-2 ml-2">
         {user && (
           <button
             onClick={logout}

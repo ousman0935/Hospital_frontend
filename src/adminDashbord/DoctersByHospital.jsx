@@ -17,11 +17,12 @@ export function DoctorsByHospital({ variant = "doctors" }) {
 
   if (isLoading || isHospitalsLoading)
     return (
-      <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-6">
+      <div className="bg-white rounded-2xl shadow-lg border
+       border-slate-100 p-0 md:p-2">
         <h2 className="text-xl font-semibold text-slate-800 mb-4">
           Doctors by Hospital
         </h2>
-        <div className="space-y-4 animate-pulse">
+        <div className="space-y-2 animate-pulse">
           {[1, 2, 3].map((i) => (
             <div key={i} className="h-24 rounded-xl bg-slate-100"></div>
           ))}
@@ -31,7 +32,8 @@ export function DoctorsByHospital({ variant = "doctors" }) {
 
   if (isError || isHospitalsError)
     return (
-      <div className="bg-white rounded-2xl shadow-lg border border-red-100 p-6">
+      <div className="bg-white rounded-2xl shadow-lg border border-red-100
+      p-0 md:p-2">
         <h2 className="text-xl font-semibold text-red-600 mb-2">
           Doctors by Hospital
         </h2>
@@ -42,7 +44,8 @@ export function DoctorsByHospital({ variant = "doctors" }) {
     );
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-6 w-full">
+    <div className="bg-white rounded-2xl shadow-lg border
+     border-slate-100 p-0 md:p-4 w-full">
       {/* Header */}
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-xl font-semibold text-slate-800">
@@ -63,12 +66,14 @@ export function DoctorsByHospital({ variant = "doctors" }) {
           return (
             <div
               key={h._id}
-              className={`rounded-2xl bg-slate-50 border border-slate-200 p-5 hover:shadow-2xl transition-transform hover:scale-105 ${
+              className={`rounded-2xl bg-slate-50 border 
+                border-slate-200 p-5 hover:shadow-2xl transition-transform hover:scale-105 ${
                 index < hospitals.length - 1 ? "mb-6" : ""
               }`}
             >
               {/* Hospital Header */}
-              <div className="flex flex-wrap items-center justify-between mb-4">
+              <div className="flex flex-wrap items-center
+               justify-between mb-4">
                 <div>
                   <h3 className="text-lg font-semibold text-slate-800">
                     {h.Name}
@@ -86,13 +91,15 @@ export function DoctorsByHospital({ variant = "doctors" }) {
 
               {/* Doctors Grid */}
               {hospitalDoctors?.length > 0 ? (
-                <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4 auto-rows-min">
+                <div className="grid grid-cols-1
+                md:grid-cols-3 lg:grid-cols-3 gap-0 md:gap-4 
+                auto-rows-min ">
                   {hospitalDoctors.map((d) => (
                     <motion.div
                       key={d._id}
                       whileHover={{ rotateY: 5, scale: 1.05 }}
                       className={`bg-white border border-slate-200 rounded-2xl
-                         px-4 flex 
+                         px-4 flex mb-2
                         ${variant === "overview" ? "flex-row" : "flex-col"} 
                         items-center justify-start shadow-md hover:shadow-2xl transition-transform transition-shadow`}
                     >
