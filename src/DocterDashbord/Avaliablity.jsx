@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Clock, CalendarDays, Save, Plus, AlertCircle } from "lucide-react";
+import { Clock, CalendarDays,  AlertCircle } from "lucide-react";
 const days = [
   { id: 0, name: "Sunday" },
   { id: 1, name: "Monday" },
