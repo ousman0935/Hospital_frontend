@@ -134,7 +134,7 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="absolute top-16 left-0 w-1\2 bg-white shadow-lg
+          <div className="absolute top-16 left-0 w-1/2 bg-white shadow-lg
            px-1 py-1 flex flex-col gap-1 md:hidden rounded-b-xl">
             <button
               onClick={() => {
