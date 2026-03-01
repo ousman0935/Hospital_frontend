@@ -3,19 +3,25 @@ import  { useEffect, useState } from "react";
 const DocterHomePage = () => {
   const [hour,setHour]=useState()
     const [minute,setMinute]=useState()
-
-const date=new Date();
-const year=date.getFullYear();
-const dateNo=date.getDate();
-const dayName=date.toLocaleDateString("en-Us",{weekday:"long"})
-const month=date.toLocaleDateString("en-Us",{month:"long"})
+const [year,setYear]=useState();
+const [dateNo,setDateNo]=useState();
+const [dayName,setDayName]=useState();
+const [month,setMonth]=useState();
 
 useEffect(()=>{
+  const date=new Date();
+setYear(date.getFullYear());
+setDateNo(date.getDate());
+const dayName=date.toLocaleDateString("en-Us",{weekday:"long"})
+setDayName(dayName);
+
+const month=date.toLocaleDateString("en-Us",{month:"long"})
+setMonth(month)
 const hour=date.getHours();
 setHour(hour)
 const minute=date.getMinutes();
 setMinute(minute);
-},[date])
+},[])
   return (
     <div className="space-y-4">
 
