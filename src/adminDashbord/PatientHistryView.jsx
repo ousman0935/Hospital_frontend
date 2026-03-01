@@ -1,16 +1,15 @@
 import { useState,useEffect } from "react";
 export function PatientHistoryPreview() {
 
-  const [activeView, setActiveView] = useState("overview"); // overview | hospitals | doctors | appointments | rejected
-    const [hospitals, setHospitals] = useState([]);
+  //const [activeView, setActiveView] = useState("overview"); // overview | hospitals | doctors | appointments | rejected
+    const [_hospitals, setHospitals] = useState([]);
     const [doctors, setDoctors] = useState([]);
     const [appointments, setAppointments] = useState([]);
-    const [filters, setFilters] = useState({ date: "", doctorId: "", userId: "", hospitalId: "", status: "" });
-    const [stats, setStats] = useState({ totalAppointments: 0, totalDoctors: 0, totalHospitals: 0 });
+    const [filters, _setFilters] = useState({ date: "", doctorId: "", userId: "", hospitalId: "", status: "" });
+    const [_stats, setStats] = useState({ totalAppointments: 0, totalDoctors: 0, totalHospitals: 0 });
 
     // load data placeholders
     useEffect(() => {
-        // Replace these with your real API calls
         async function loadAll() {
           try {
             // Example fetches - change URLs
@@ -44,7 +43,7 @@ export function PatientHistoryPreview() {
 
   
     // Derived lists
-    const appointmentsFiltered = appointments.filter((a) => {
+   { const _appointmentsFiltered = appointments.filter((a) => {
       if (filters.date && !a.date.startsWith(filters.date)) return false;
       if (filters.doctorId && a.doctorId !== filters.doctorId) return false;
       if (filters.userId && a.user && a.user._id !== filters.userId) return false;
@@ -52,9 +51,9 @@ export function PatientHistoryPreview() {
       if (filters.status && a.status !== filters.status) return false;
       return true;
     });
-  
-    const rejectedAppointments = appointments.filter((a) => a.status === "rejected");
-    const successAppointments = appointments.filter((a) => a.status === "success");
+  }
+    //const rejectedAppointments = appointments.filter((a) => a.status === "rejected");
+    //const successAppointments = appointments.filter((a) => a.status === "success");
   
     // small helper UI components
    

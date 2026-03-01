@@ -64,8 +64,8 @@ const handleImageChange = (e, type) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const hospitalData=form
-    const uploadData=new FormData()
+    let hospitalData=form
+    let uploadData=new FormData()
     if(Logo) uploadData.append("Logo", Logo);
     if(Cover) uploadData.append("Cover", Cover);
     if(Logo || Cover){

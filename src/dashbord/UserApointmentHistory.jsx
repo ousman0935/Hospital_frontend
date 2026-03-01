@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Clock, CalendarDays, CheckCircle, XCircle, Activity, MessageSquare } from "lucide-react";
-import { div } from "framer-motion";
+//import { div } from "framer-motion";
 
 const dummyAppointments = [
   {

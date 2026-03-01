@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 const UserEditPage = () => {
@@ -13,7 +13,8 @@ const UserEditPage = () => {
  const {id}=useParams();
 
   useEffect(() => {
-      if (!id) return   console.log("id does not exists"); // make sure _id exists
+      if (!id) return  
+     console.log("id does not exists"); // make sure _id exists
      console.log(id)
     const getUser=async ()=>{
        try {
@@ -34,10 +35,9 @@ const UserEditPage = () => {
     }
     }
     getUser();
-    console.log(form)
    
-  
-  }, [id]);
+
+  }, [id,form]);
 
   // 2️⃣ Handle input change
   const handleChange = (e) => {

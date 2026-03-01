@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import './registration.css'
 import { useQuery } from '@tanstack/react-query';
 import Login from './Login';
 import { useState } from 'react';
 import { fetchHospitals } from './adminDashbord/api/hospitals';
-import axios, {Axios} from 'axios'
+import axios from 'axios'
 import { faHospital } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -35,8 +35,7 @@ function Registration(){
   const [hospital,setHospital]=useState();
 
   const {data:hospitalls=[],
-          isHospitalsLoading,
-          isHospitalsError,}
+}
         =useQuery({
           queryKey:["Hospitals"],
           queryFn:fetchHospitals
@@ -47,16 +46,16 @@ function Registration(){
   
       try {
         let Payload={ Phone,Email,Password1,Password2,Name,Role}
-        let user;
+        
             if(Role==="doctor"){
             Payload={...Payload,  Specialization,Experience};
-       user=await axios.post("https://hospital-b2mt.onrender.com/docter",Payload)
+       await axios.post("https://hospital-b2mt.onrender.com/docter",Payload)
        toast.success("Registration Succesfull Doctor");
      
       }
       else
       {
-           user=await axios.post("https://hospital-b2mt.onrender.com/user",
+          await axios.post("https://hospital-b2mt.onrender.com/user",
         Payload)}
            toast.success("Registration Succesfull user");
       } catch (error) {

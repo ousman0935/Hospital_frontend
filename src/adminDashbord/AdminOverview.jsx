@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { Navbar } from "./Navbar.jsx";
-import {Outlet} from "react-router-dom"
+import { useEffect, useState } from "react";
+//import { toast } from "react-toastify";
+//import { Navbar } from "./Navbar.jsx";
+//import {Outlet} from "react-router-dom"
 import { DoctorHomePreview } from "./DocterHomePreview.jsx";
-import Sidebar from "./Sidebar.jsx";
-import { UserContext } from "../context/contextApi";
+//import Sidebar from "./Sidebar.jsx";
+//import { UserContext } from "../context/contextApi";
 import { HospitalsList } from "./HospitalsList.jsx";
 import { DoctorsByHospital } from "./DoctersByHospital.jsx";
-import { useContext } from "react";
+//import { useContext } from "react";
 import { motion } from "framer-motion";
-import { AddHospital } from "./AddHopital.jsx";
+//import { AddHospital } from "./AddHopital.jsx";
 import { PatientHistoryPreview } from "./PatientHistryView.jsx";
 import { useQuery } from "@tanstack/react-query";
 import { fetchHospitals } from "./api/hospitals.js";
@@ -17,10 +17,10 @@ import { fetchDocters } from "./api/doctors.js";
 import ApointmentView from "./ApointmentView.jsx";
 
 const AdminOverview = () => {
-    const [hospitals, setHospitals] = useState([]);
-     const [doctors, setDoctors] = useState([]);
+    const [_hospitals, setHospitals] = useState([]);
+     const [_doctors, setDoctors] = useState([]);
      const [appointments, setAppointments] = useState([]);
-     const [filters, setFilters] = useState({ date: "", doctorId: "", userId: "", hospitalId: "", status: "" });
+    // const [filters, _setFilters] = useState({ date: "", doctorId: "", userId: "", hospitalId: "", status: "" });
      const [stats, setStats] = useState({ totalAppointments: 0, totalDoctors: 0, totalHospitals: 0 });
      // load data placeholders
      useEffect(() => {
@@ -57,15 +57,13 @@ const AdminOverview = () => {
      }, []);
      const { data:docters=[],
          isLoading,
-         isError,
-         Error
-     }=useQuery({
+          }=useQuery({
       queryKey:["docters"],
       queryFn:fetchDocters
      });
     const {data:hospitalls=[],
           isHospitalsLoading,
-          isHospitalsError,}
+          }
         =useQuery({
           queryKey:["Hospitals"],
           queryFn:fetchHospitals
@@ -74,17 +72,17 @@ const AdminOverview = () => {
      const totalHospitals=hospitalls?.length
    
      // Derived lists
-     const appointmentsFiltered = appointments.filter((a) => {
+    /* const _appointmentsFiltered = appointments.filter((a) => {
        if (filters.date && !a.date.startsWith(filters.date)) return false;
        if (filters.doctorId && a.doctorId !== filters.doctorId) return false;
        if (filters.userId && a.user && a.user._id !== filters.userId) return false;
        if (filters.hospitalId && a.hospitalId !== filters.hospitalId) return false;
        if (filters.status && a.status !== filters.status) return false;
        return true;
-     });
+     });*/
    
      const rejectedAppointments = appointments.filter((a) => a.status === "rejected");
-     const successAppointments = appointments.filter((a) => a.status === "success");
+     //const successAppointments = appointments.filter((a) => a.status === "success");
    
     
    

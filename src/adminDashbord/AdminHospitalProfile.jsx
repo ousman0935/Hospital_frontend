@@ -1,6 +1,5 @@
-import React from "react";
 import {
-  Building2,
+  
   Phone,
   Mail,
   MapPin,

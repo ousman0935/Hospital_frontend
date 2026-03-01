@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { UserContext } from "../context/contextApi";
-import { FaUserMd, FaCalendarCheck, FaEnvelope, FaHistory } from "react-icons/fa";
-import { MdSearch } from "react-icons/md";
+//import { useContext } from "react";
+//import { UserContext } from "../context/contextApi";
+//import { FaUserMd, FaCalendarCheck, FaEnvelope, FaHistory } from "react-icons/fa";
+//import { MdSearch } from "react-icons/md";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import Footer from "../footer/Footer";
+//import Footer from "../footer/Footer";
 import { useState } from "react";
 export function PatientDashboard() {
 const [showHelpModal, setShowHelpModal] = useState(false);

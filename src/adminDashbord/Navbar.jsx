@@ -3,7 +3,6 @@ import { UserContext } from "../context/contextApi";
 import { FaUserShield, FaSignOutAlt } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 export function Navbar({ onMenuClick }) {

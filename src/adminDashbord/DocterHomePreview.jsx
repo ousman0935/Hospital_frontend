@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 export function DoctorHomePreview() {
-    const [stats, setStats] = useState({ totalAppointments: 0, totalDoctors: 0, totalHospitals: 0 });
-      const [hospitals, setHospitals] = useState([]);
+    const [_stats, setStats] = useState({ totalAppointments: 0, totalDoctors: 0, totalHospitals: 0 });
+      const [_hospitals, setHospitals] = useState([]);
     
     const [doctors, setDoctors] = useState([]);
     const [appointments, setAppointments] = useState([]);

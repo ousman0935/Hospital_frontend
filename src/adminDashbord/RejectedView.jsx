@@ -2,12 +2,12 @@ import React from 'react'
 import { useState,useEffect } from 'react';
 
 const RejectedView = () => {
-       const [hospitals, setHospitals] = useState([]);
-         const [doctors, setDoctors] = useState([]);
+       const [_hospitals, setHospitals] = useState([]);
+         const [_doctors, setDoctors] = useState([]);
          const [appointments, setAppointments] = useState([]);
-         const [stats, setStats] = useState({ totalAppointments: 0, totalDoctors: 0, totalHospitals: 0 });
+        const [_stats, setStats] = useState({ totalAppointments: 0, totalDoctors: 0, totalHospitals: 0 });
          
-         const [filters, setFilters] = useState({ date: "", doctorId: "", userId: "", hospitalId: "", status: "" });
+         const [_filters, _setFilters] = useState({ date: "", doctorId: "", userId: "", hospitalId: "", status: "" });
          // load data placeholders
          useEffect(() => {
            // Replace these with your real API calls
@@ -43,17 +43,17 @@ const RejectedView = () => {
          }, []);
        
          // Derived lists
-         const appointmentsFiltered = appointments.filter((a) => {
+        {/* const appointmentsFiltered = appointments.filter((a) => {
            if (filters.date && !a.date.startsWith(filters.date)) return false;
            if (filters.doctorId && a.doctorId !== filters.doctorId) return false;
            if (filters.userId && a.user && a.user._id !== filters.userId) return false;
            if (filters.hospitalId && a.hospitalId !== filters.hospitalId) return false;
            if (filters.status && a.status !== filters.status) return false;
            return true;
-         });
+         });  */}
        
          const rejectedAppointments = appointments.filter((a) => a.status === "rejected");
-         const successAppointments = appointments.filter((a) => a.status === "success");
+         //const successAppointments = appointments.filter((a) => a.status === "success");
        
         
   return (

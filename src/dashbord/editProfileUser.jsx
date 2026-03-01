@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../context/contextApi";
 import { FaUserEdit, FaSave, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
-import { Radio } from "lucide-react";
+//import { Radio } from "lucide-react";
 
 export default function PatientProfileEdit() {
   const [changePassword, setChangePassword] = useState(false);
@@ -26,7 +26,7 @@ const locations = {
   "Dire Dawa": { cities: ["Dire Dawa"] },
 };
 
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 const {showConfirmPassword,setShowConfirmPassword}=useState(false)
   const [formData, setFormData] = useState({
     name: user?.Name || "",

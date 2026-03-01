@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/contextApi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes} from "@fortawesome/free-solid-svg-icons";
 import Login from "../Login";// adjust path if needed
 
 export default function Header() {

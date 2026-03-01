@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import { StatCard } from './reusable/StatCard.jsx';
 import { StatusBadge } from './reusable/StatusBadge';
 
 const DocterProfile = () => {
   const [docter,setDocter]=useState(null);
-  const [Error,setError]=useState(false);
- const [Loadding,setLoading]=useState(false);
+  const [_Error,setError]=useState(false);
+ const [_Loadding,setLoading]=useState(false);
   const {id}=useParams();
 
   useEffect(()=>{

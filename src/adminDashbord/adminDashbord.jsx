@@ -9,7 +9,7 @@ export default function AdminDashboard() {
 
   // Sidebar width for desktop (UNCHANGED LOGIC)
   const sidebarWidth = collapsed ? 56 : 180;
-  const navbarHeight = 56;
+  //const navbarHeight = 56;
 
   return (
     <div className="min-h-screen relative bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100 text-slate-800">
