@@ -34,14 +34,19 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-  
+"eslintConfig": {
   "ignorePatterns": ["src/**/*.css"],
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ],
+  "rules": {
+    "no-unused-vars": ["warn", {
+      "varsIgnorePattern": "^_",
+      "argsIgnorePattern": "^_"
+    }]
+  }
+},
   "browserslist": {
     "production": [
       ">0.2%",
