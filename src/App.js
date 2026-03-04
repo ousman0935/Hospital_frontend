@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Registration from './Registration.jsx';
-import Login from './Login.jsx';
 import Home from './home/Home.jsx';
 import ApointmentView from './adminDashbord/ApointmentView.jsx';
 import Footer from './footer/Footer.js';
@@ -49,10 +48,9 @@ function AppWrapper() {
     <>
       {showHeader && <Header />}
       <Routes>
-        <Route path='/' element={<Login />} />
         <Route path='/users' element={<Users />} />
         <Route path='/newUser' element={<Registration />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/docter' element={<DoctorDashboard />} >
            <Route index element={<DocterHomePage/>}/>
            <Route path='profile' element={<DoctorProfilePage/>}/>
